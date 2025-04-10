@@ -1,0 +1,135 @@
+/* General Body Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Allows content to scroll if too tall */
+  min-height: 100vh;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Form Container Styling */
+.form-container {
+  background-color: white;
+  border: 2px solid green;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.form-logo {
+  display: block;
+  margin: 0 auto 10px; /* Center the logo and add spacing below */
+  max-width: 100px; /* Adjust the size of the logo */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Form Title */
+.form-title {
+  text-align: center;
+  color: green;
+  margin-bottom: 20px;
+}
+
+/* Form Fields */
+form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: green;
+}
+
+form input,
+form select,
+form textarea,
+form button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Submit Button Styling */
+form button {
+  background-color: green;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+form button:hover {
+  background-color: darkgreen;
+}
+
+/* Medical Details Container */
+#medical-details-container {
+  margin-top: -10px;
+}
+
+/* Dashboard Container Styling */
+.dashboard-container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.dashboard-logo {
+  max-width: 80px;
+  margin-right: 20px;
+}
+
+.dashboard-title {
+  color: green;
+  font-size: 24px;
+}
+
+.dashboard-main {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Dashboard Table Styling */
+.dashboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.dashboard-table th,
+.dashboard-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.dashboard-table th {
+  background-color: green;
+  color: white;
+}
+
+.dashboard-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.dashboard-table tr:hover {
+  background-color: #f1f1f1;
+}
