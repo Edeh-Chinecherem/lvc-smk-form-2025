@@ -26,32 +26,34 @@ const Dashboard = () => {
     }, []);
 
     const renderTable = (data, columns) => (
-        <table className="dashboard-table">
-            <thead>
-                <tr>
-                    {columns.map((column, index) => (
-                        <th key={index}>{column}</th>
-                    ))}
-                </tr>
-            </thead>
-            <tbody>
-                {data.length > 0 ? (
-                    data.map((user, index) => (
-                        <tr key={index}>
-                            {columns.map((column, colIndex) => (
-                                <td key={colIndex}>{user[column.toLowerCase()] || "N/A"}</td>
-                            ))}
-                        </tr>
-                    ))
-                ) : (
+        <div className="table-container">
+            <table className="dashboard-table">
+                <thead>
                     <tr>
-                        <td colSpan={columns.length} style={{ textAlign: "center" }}>
-                            No data available
-                        </td>
+                        {columns.map((column, index) => (
+                            <th key={index}>{column}</th>
+                        ))}
                     </tr>
-                )}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {data.length > 0 ? (
+                        data.map((user, index) => (
+                            <tr key={index}>
+                                {columns.map((column, colIndex) => (
+                                    <td key={colIndex}>{user[column.toLowerCase()] || "N/A"}</td>
+                                ))}
+                            </tr>
+                        ))
+                    ) : (
+                        <tr>
+                            <td colSpan={columns.length} style={{ textAlign: "center" }}>
+                                No data available
+                            </td>
+                        </tr>
+                    )}
+                </tbody>
+            </table>
+        </div>
     );
 
     return (
@@ -64,7 +66,7 @@ const Dashboard = () => {
                 <h2>Camp Registration Dashboard</h2>
 
                 {/* Section for Campers */}
-                <section>
+                <section className="dashboard-section">
                     <h3>Campers</h3>
                     {renderTable(campers, [
                         "Name",
@@ -83,7 +85,7 @@ const Dashboard = () => {
                 </section>
 
                 {/* Section for SUCF Members */}
-                <section>
+                <section className="dashboard-section">
                     <h3>SUCF Members</h3>
                     {renderTable(sucfMembers, [
                         "Name",
@@ -96,7 +98,7 @@ const Dashboard = () => {
                 </section>
 
                 {/* Section for Pilgrims */}
-                <section>
+                <section className="dashboard-section">
                     <h3>Pilgrims</h3>
                     {renderTable(pilgrims, [
                         "Name",
