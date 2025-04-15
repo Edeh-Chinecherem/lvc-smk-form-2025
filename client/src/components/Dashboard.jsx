@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate for redirection
 import "../styles/index.css"; // Ensure your CSS styles are imported
 
 const Dashboard = () => {
     const [campers, setCampers] = useState([]);
     const [sucfMembers, setSucfMembers] = useState([]);
     const [pilgrims, setPilgrims] = useState([]);
+    const navigate = useNavigate(); // Initialize useNavigate
 
     useEffect(() => {
         async function fetchData() {
@@ -24,6 +26,11 @@ const Dashboard = () => {
 
         fetchData();
     }, []);
+
+    const handleLogout = () => {
+        localStorage.removeItem("token"); // Remove the token from localStorage
+        navigate("/login"); // Redirect to the login page
+    };
 
     const renderTable = (data, columns) => (
         <div className="table-container">
@@ -61,6 +68,20 @@ const Dashboard = () => {
             <header className="dashboard-header">
                 <img src="/sulogo.jpg" alt="LVC SMK Zone Logo" className="dashboard-logo" />
                 <h1 className="dashboard-title">LVC 2025 SMK Zone Dashboard</h1>
+                <button
+                    onClick={handleLogout}
+                    style={{
+                        marginLeft: "auto",
+                        padding: "10px 20px",
+                        backgroundColor: "green",
+                        color: "white",
+                        border: "none",
+                        borderRadius: "5px",
+                        cursor: "pointer",
+                    }}
+                >
+                    Logout
+                </button>
             </header>
             <main className="dashboard-main">
                 <h2>Camp Registration Dashboard</h2>
