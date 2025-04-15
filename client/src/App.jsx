@@ -24,8 +24,11 @@ const Navbar = () => (
 const App = () => {
     // Function to check if the user is authenticated
     const isAuthenticated = () => {
-        return !!localStorage.getItem("token"); // Check if a token exists in localStorage
+        const token = localStorage.getItem("token");
+        console.log("Is authenticated:", !!token); // Debugging log
+        return !!token;
     };
+
 
     return (
         <Router>
