@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route, Link, Navigate } from "react-ro
 import RegistrationForm from "./components/RegistrationForm";
 import Dashboard from "./components/Dashboard";
 import Login from "./components/Login";
-import AdminRegister from "./components/AdminRegister"; // Import the Admin Registration component
 
 const Navbar = () => (
     <nav style={{ padding: "10px", backgroundColor: "#f0f0f0", marginBottom: "20px" }}>
@@ -13,9 +12,6 @@ const Navbar = () => (
             </li>
             <li>
                 <Link to="/dashboard" style={{ textDecoration: "none", color: "blue" }}>Dashboard</Link>
-            </li>
-            <li>
-                <Link to="/admin/register" style={{ textDecoration: "none", color: "blue" }}>Admin Register</Link>
             </li>
         </ul>
     </nav>
@@ -28,7 +24,6 @@ const App = () => {
         console.log("Is authenticated:", !!token); // Debugging log
         return !!token;
     };
-
 
     return (
         <Router>
