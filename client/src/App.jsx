@@ -26,33 +26,36 @@ const Navbar = () => (
     const isAuthenticated = () => {
     return !!localStorage.getItem("token"); // Check if a token exists in localStorage
     };
-
+    
     return (
-    <Router>
-        <div>
-            {/* Navbar for navigation */}
-            <Navbar />
+        <Router>
+            <div>
+                {/* Navbar for navigation */}
+                <Navbar />
 
-            {/* Routes for different pages */}
-            <Routes>
-                {/* Route for the Registration Form */}
-                <Route path="/" element={<RegistrationForm />} />
+                {/* Routes for different pages */}
+                <Routes>
+                    {/* Route for the Registration Form */}
+                    <Route path="/" element={<RegistrationForm />} />
 
-                {/* Route for the Login Page */}
-                <Route path="/login" element={<Login />} />
+                    {/* Route for the Login Page */}
+                    <Route path="/login" element={<Login />} />
 
-                {/* Route for the Admin Registration Page */}
-                <Route path="/admin/register" element={<AdminRegister />} />
+                    {/* Route for the Admin Registration Page */}
+                    <Route
+                        path="/admin/register"
+                        element={isAuthenticated() ? <AdminRegister /> : <Navigate to="/login" />}
+                    />
 
-                {/* Protected Route for the Dashboard */}
-                <Route
-                    path="/dashboard"
-                    element={isAuthenticated() ? <Dashboard /> : <Navigate to="/login" />}
-                />
-            </Routes>
-        </div>
-    </Router>
-);
+                    {/* Protected Route for the Dashboard */}
+                    <Route
+                        path="/dashboard"
+                        element={isAuthenticated() ? <Dashboard /> : <Navigate to="/login" />}
+                    />
+                </Routes>
+            </div>
+        </Router>
+    );
 };
 
 export default App;
